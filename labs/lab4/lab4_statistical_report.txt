@@ -1,0 +1,48 @@
+Lab 4 Statistical Report
+
+== Concrete Strength: Descriptive Statistics ==
+
+ count  mean  median  mode   std  variance  min   q1  q2_median     q3  max  range   iqr  skewness  kurtosis
+   100 35.06    34.2  31.8 6.163    37.979 21.8 31.1       34.2 39.125 47.1   25.3 8.025     0.047    -0.675
+
+
+Engineering Interpretation:
+- Mean & median indicate typical compressive strength for quality control.
+- Std, IQR quantify variability; higher values imply larger safety margins.
+- Skewness/kurtosis hint at tail risk: heavy right-tail may indicate rare high-strength batches.
+
+== Material Properties by Material Type ==
+
+               count     mean     std    min  q2_median    max  variance
+material_type                                                           
+Aluminum          50  196.632   7.633  186.2     194.50  212.4    58.267
+Composite         50  299.042  10.384  281.5     298.70  319.2   107.837
+Concrete          50   36.258   2.219   32.3      36.20   40.1     4.922
+Steel             50  399.098  10.398  381.6     399.05  419.2   108.127
+
+Interpretation: Wider spread across a material implies greater uncertainty in design.
+
+
+== Fitted Normal to Concrete Strength ==
+
+μ (fit) = 35.060, σ (fit) = 6.132
+Compare with sample mean/std to assess normality assumption.
+
+== Probability Scenarios ==
+
+Binomial P(X=3) [n=100,p=0.05]: 0.139576
+Binomial P(X<=5) [n=100,p=0.05]: 0.615999
+Poisson P(X=8) [λ=10]: 0.112599
+Poisson P(X>15) [λ=10]: 0.048740
+Normal P(X>280) [μ=250,σ=15]: 0.022750
+Normal 95th percentile [μ=250,σ=15]: 274.672804
+Exponential P(T<=500) [mean=1000]: 0.393469
+Exponential P(T>1500) [mean=1000]: 0.223130
+Bayes PPV P(Damage|+): 0.333333
+Bayes NPV P(¬Damage|-): 0.997085
+
+Notes for Civil Engineering Practice:
+- Binomial: batch defect counts; use for acceptance sampling.
+- Poisson: event counts per hour (e.g., heavy trucks).
+- Normal: strengths & loads; percentile checks for design thresholds.
+- Exponential: time-to-failure; useful for maintenance planning.
